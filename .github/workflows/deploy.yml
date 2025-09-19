@@ -1,0 +1,24 @@
+name: Deploy Frontend
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Docker login
+              run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+            - name: Build image
+              run: docker build -t kishorrvcmvit/react-frontend-gh .
+
+            - name: Run tests
+              run: docker run -e CI=true kishorrvcmvit/react-frontend-gh npm test
+
+            - name: Deploy to EB
+              echo "ToDo EB Deploy"
