@@ -21,4 +21,4 @@ jobs:
               run: docker run -e CI=true kishorrvcmvit/react-frontend-gh npm test
 
             - name: Deploy to EB
-              echo "ToDo EB Deploy"
+              run: echo "ToDo EB Deploy"
