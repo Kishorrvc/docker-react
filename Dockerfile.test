@@ -1,0 +1,14 @@
+FROM node:alpine
+
+WORKDIR /app
+
+COPY package.json .
+RUN npm install
+
+RUN npm install react@latest react-dom@latest @testing-library/react@latest @testing-library/jest-dom@latest
+
+# COPY . . # This is optional if we are using bind mount in docker-compose file
+# RUN mkdir -p dummy
+# RUN echo "SKIPPING TESTS" > dummy/hello.txt
+
+CMD ["npm", "run", "test"]
