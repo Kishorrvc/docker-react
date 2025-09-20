@@ -19,6 +19,9 @@ jobs:
 
             - name: Run tests
               run: docker run -e CI=true kishorrvcmvit/react-frontend-gh npm test
+            
+            - name: Generate deployment package
+              run: zip -r deploy.zip . -x '*.git*'
 
             - name: Deploy to EB
               uses: einaregilsson/beanstalk-deploy@v18
