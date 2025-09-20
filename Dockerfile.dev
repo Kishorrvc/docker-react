@@ -9,4 +9,6 @@ COPY . .
 # RUN mkdir -p dummy
 # RUN echo "SKIPPING TESTS" > dummy/hello.txt
 
+EXPOSE 8080
+
 CMD ["npm", "run", "start"]
