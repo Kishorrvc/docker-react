@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json .
 RUN npm install
 
-COPY . . # This is optional if we are using bind mount in docker-compose file
+COPY . .
 # RUN mkdir -p dummy
 # RUN echo "SKIPPING TESTS" > dummy/hello.txt
 
