@@ -15,7 +15,7 @@ jobs:
               run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
             - name: Build image
-              run: docker build -t kishorrvcmvit/react-frontend-gh -f Dockerfile.dev .
+              run: docker build -t kishorrvcmvit/react-frontend-gh -f Dockerfile.test .
 
             - name: Run tests
               run: docker run -e CI=true kishorrvcmvit/react-frontend-gh npm test
