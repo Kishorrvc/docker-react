@@ -17,11 +17,14 @@ jobs:
             - name: Build image
               run: docker build -t kishorrvcmvit/react-frontend-gh -f Dockerfile.dev .
 
-            # - name: Run tests
-            #   run: docker run -e CI=true kishorrvcmvit/react-frontend-gh npm test
+            # - name: Run production tests
+            #   run: docker run --target builder -e CI=true kishorrvcmvit/react-frontend-gh npm run test
 
-            - name: Run dev server
-              run: docker run -e CI=true kishorrvcmvit/react-frontend-gh
+            - name: Run tests
+              run: docker run -e CI=true kishorrvcmvit/react-frontend-gh npm run test -- --coverage
+
+            # - name: Run dev server
+            #   run: docker run -e CI=true kishorrvcmvit/react-frontend-gh npm test
 
             - name: Generate deployment package
               run: zip -r deploy.zip . -x '*.git*'
