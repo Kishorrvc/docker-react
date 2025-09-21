@@ -16,7 +16,7 @@ function App() {
           <br />
           <br />
           <br />
-          Prod completed by - Kishor Kumar S
+          Github Actions CI - Kishor Kumar S
         </h3>
 
         <a
